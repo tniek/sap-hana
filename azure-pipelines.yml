@@ -19,6 +19,6 @@ steps:
   displayName: 'Install Ansible Azure'
 
 - script: |
-    cd persia/sap-hana-1/deploy/vm/modules/single_node_hana
+    cd sap-hana-1/deploy/vm/modules/single_node_hana
     terraform init
   displayName: 'Run a multi-line script'
