@@ -19,7 +19,6 @@ steps:
   displayName: 'Install Ansible Azure'
 
 - script: |
-    pwd
-    ansible version
-    echo See https://aka.ms/yaml
+    cd persia/sap-hana-1/deploy/vm/modules/single_node_hana
+    terraform init
   displayName: 'Run a multi-line script'
