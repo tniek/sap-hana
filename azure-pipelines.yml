@@ -9,17 +9,17 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
 
-steps:
-- checkout: self  # self represents the repo where the initial Pipelines YAML file was found
-  clean: "all"  # whether to fetch clean each time
-  path: "persia"  # path to check out source code, relative to the agent's build directory (e.g. \_work\1)
-  persistCredentials: boolean  # set to 'true' to leave the OAuth token in the Git config after the initial fetch
-
-- script: terraform version
-  displayName: 'Install Ansible Azure'
-
-- script: |
-    ls
-    cd deploy/vm/modules/single_node_hana
-    terraform init
-  displayName: 'Run a multi-line script'
+jobs:
+- job: "single_node_hana"
+  displayName: "Test deployment of single node hana"
+  steps:
+  - checkout: self  # self represents the repo where the initial Pipelines YAML file was found
+    clean: "all"  # whether to fetch clean each time
+    path: "persia"  # path to check out source code, relative to the agent's build directory (e.g. \_work\1)
+    persistCredentials: boolean  # set to 'true' to leave the OAuth token in the Git config after the initial fetch
+  - script: |
+      ls
+      cd deploy/vm/modules/single_node_hana
+      terraform init
+      terraform plan
+    displayName: 'Test single node hana'
