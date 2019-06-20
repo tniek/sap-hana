@@ -3,14 +3,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-16.04'
-
 jobs:
 - job: "single_node_hana"
+  pool:
+    vmImage: "ubuntu-16.04"
   displayName: "Test deployment of single node hana"
   steps:
   - checkout: self  # self represents the repo where the initial Pipelines YAML file was found
