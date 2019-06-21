@@ -23,7 +23,7 @@ jobs:
       cd deploy/vm/modules/single_node_hana
       terraform version
       terraform init -no-color
-      terraform apply -no-color
+      terraform apply -auto-approve -no-color
       echo "terraform apply succeeded.. Now destroying the deployment"
       terraform destroy
     displayName: 'Test single node hana'
