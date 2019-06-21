@@ -17,6 +17,7 @@ jobs:
     persistCredentials: boolean  # set to 'true' to leave the OAuth token in the Git config after the initial fetch
   - script: |
       ls
+      cp deploy/vm/test/terraform.tfvars deploy/vm/modules/single_node_hana
       cd deploy/vm/modules/single_node_hana
       terraform init
       terraform plan
