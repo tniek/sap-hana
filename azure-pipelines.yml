@@ -7,6 +7,7 @@ jobs:
 - job: "single_node_hana"
   variables:
   - group: test_sap_hana_deployment
+  - group: azure-config-variables
   pool:
     vmImage: "ubuntu-16.04"
   displayName: "Test deployment of single node hana"
