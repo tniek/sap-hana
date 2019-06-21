@@ -1,6 +1,10 @@
 # Configure the Microsoft Azure Provider
 provider "azurerm" {}
 
+output "hello" {
+  value = "world"
+}
+
 module "common_setup" {
   source            = "../common_setup"
   allow_ips         = "${var.allow_ips}"
