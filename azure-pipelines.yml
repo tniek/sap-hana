@@ -21,8 +21,11 @@ jobs:
       ssh-keygen -b 4096 -t rsa -f /tmp/sshkey -q -N ""
       cp deploy/vm/test/terraform.tfvars deploy/vm/modules/single_node_hana
       cd deploy/vm/modules/single_node_hana
+      terraform version
       terraform init -no-color
-      terraform plan -no-color
+      terraform apply -no-color
+      echo "terraform apply succeeded.. Now destroying the deployment"
+      terraform destroy
     displayName: 'Test single node hana'
     env:
       TF_VAR_azure_service_principal_id: $(hanarp-int-landscape-spn-id)
